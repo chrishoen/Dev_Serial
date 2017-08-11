@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test", "Test\Test.vcxproj", "{810C1015-7EEC-469D-A06A-DB8862AB4630}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SerialThread", "SerialThread\SerialThread.vcxproj", "{F1A98130-ADD5-4166-AAB6-6D8DE8680CB9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{810C1015-7EEC-469D-A06A-DB8862AB4630}.Release|x64.Build.0 = Release|x64
 		{810C1015-7EEC-469D-A06A-DB8862AB4630}.Release|x86.ActiveCfg = Release|Win32
 		{810C1015-7EEC-469D-A06A-DB8862AB4630}.Release|x86.Build.0 = Release|Win32
+		{F1A98130-ADD5-4166-AAB6-6D8DE8680CB9}.Debug|x64.ActiveCfg = Debug|x64
+		{F1A98130-ADD5-4166-AAB6-6D8DE8680CB9}.Debug|x64.Build.0 = Debug|x64
+		{F1A98130-ADD5-4166-AAB6-6D8DE8680CB9}.Debug|x86.ActiveCfg = Debug|Win32
+		{F1A98130-ADD5-4166-AAB6-6D8DE8680CB9}.Debug|x86.Build.0 = Debug|Win32
+		{F1A98130-ADD5-4166-AAB6-6D8DE8680CB9}.Release|x64.ActiveCfg = Release|x64
+		{F1A98130-ADD5-4166-AAB6-6D8DE8680CB9}.Release|x64.Build.0 = Release|x64
+		{F1A98130-ADD5-4166-AAB6-6D8DE8680CB9}.Release|x86.ActiveCfg = Release|Win32
+		{F1A98130-ADD5-4166-AAB6-6D8DE8680CB9}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
