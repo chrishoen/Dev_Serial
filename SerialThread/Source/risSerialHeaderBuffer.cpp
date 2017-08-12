@@ -8,7 +8,7 @@ Description:
 
 #include "stdafx.h"
 
-#include "risByteShiftRegister.h"
+#include "risSerialHeaderBuffer.h"
 
 namespace Ris
 {
@@ -17,21 +17,17 @@ namespace Ris
 //******************************************************************************
 //******************************************************************************
 
-ByteShiftRegister::ByteShiftRegister()
+SerialHeaderBuffer::SerialHeaderBuffer()
 {
    reset();
 }
 
-//******************************************************************************
-
-ByteShiftRegister::~ByteShiftRegister()
+SerialHeaderBuffer::~SerialHeaderBuffer()
 {
    finalize();
 }
 
-//******************************************************************************
-
-void ByteShiftRegister::reset()
+void SerialHeaderBuffer::reset()
 {
    mArray = 0;
    mSize  = 0;
@@ -40,9 +36,7 @@ void ByteShiftRegister::reset()
    mK     = 0;
 }
 
-//******************************************************************************
-
-void ByteShiftRegister::initialize(int aSize)
+void SerialHeaderBuffer::initialize(int aSize)
 {
    finalize();
    reset();
@@ -53,18 +47,14 @@ void ByteShiftRegister::initialize(int aSize)
    mK = 0;
 }
 
-//******************************************************************************
-
-void ByteShiftRegister::reinitialize()
+void SerialHeaderBuffer::reinitialize()
 {
    mCount = 0;
    mIndex = mSize-1;
    mK = 0;
 }
 
-//******************************************************************************
-
-void ByteShiftRegister::finalize()
+void SerialHeaderBuffer::finalize()
 {
    if (mArray)
    {
@@ -74,8 +64,10 @@ void ByteShiftRegister::finalize()
 }
 
 //******************************************************************************
+//******************************************************************************
+//******************************************************************************
 
-void ByteShiftRegister::shiftRight(double aX)
+void SerialHeaderBuffer::shiftRight(double aX)
 {
    // Adjust index to the right
    mIndex = my_index_add(mIndex, 1, mSize);
@@ -100,16 +92,20 @@ void ByteShiftRegister::shiftRight(double aX)
 }
 
 //******************************************************************************
+//******************************************************************************
+//******************************************************************************
 
-void ByteShiftRegister::setLeft(double aX)
+void SerialHeaderBuffer::setLeft(double aX)
 {
    // Set array left end value
    mArray[mIndex]=aX;
 }
 
 //******************************************************************************
+//******************************************************************************
+//******************************************************************************
 
-double ByteShiftRegister::get(int aOffset)
+double SerialHeaderBuffer::get(int aOffset)
 {
    // Guard
    if (!mValid) return 0.0;
@@ -122,8 +118,10 @@ double ByteShiftRegister::get(int aOffset)
 }
 
 //******************************************************************************
+//******************************************************************************
+//******************************************************************************
 
-double ByteShiftRegister::getLeft()
+double SerialHeaderBuffer::getLeft()
 {
    // Guard
    if (!mValid) return 0.0;
@@ -133,8 +131,10 @@ double ByteShiftRegister::getLeft()
 }
 
 //******************************************************************************
+//******************************************************************************
+//******************************************************************************
 
-double ByteShiftRegister::getRight()
+double SerialHeaderBuffer::getRight()
 {
    // Guard
    if (!mValid) return 0.0;
@@ -148,10 +148,12 @@ double ByteShiftRegister::getRight()
 
 
 //******************************************************************************
+//******************************************************************************
+//******************************************************************************
 
-void ByteShiftRegister::show()
+void SerialHeaderBuffer::show()
 {
-   printf("ByteShiftRegister:                   %3d %8.3f $$",mIndex,mX);
+   printf("SerialHeaderBuffer:                   %3d %8.3f $$",mIndex,mX);
    for (int j=0;j<mSize;j++)
    {
       printf("%8.3f ", get(j));

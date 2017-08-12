@@ -26,7 +26,7 @@
     <ClCompile Include="Source\risSerialMsgThread.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Source\risByteShiftRegister.cpp">
+    <ClCompile Include="Source\risSerialHeaderBuffer.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,7 +47,7 @@
     <ClInclude Include="Source\risSerialMsgThread.h">
       <Filter>Source</Filter>
     </ClInclude>
-    <ClInclude Include="Source\risByteShiftRegister.h">
+    <ClInclude Include="Source\risSerialHeaderBuffer.h">
       <Filter>Source</Filter>
     </ClInclude>
   </ItemGroup>
