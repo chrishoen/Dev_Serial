@@ -26,6 +26,9 @@
     <ClCompile Include="Source\risSerialMsgThread.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Source\risByteShiftRegister.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CmdLineExec.h">
@@ -42,6 +45,9 @@
       <Filter>Source</Filter>
     </ClInclude>
     <ClInclude Include="Source\risSerialMsgThread.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\risByteShiftRegister.h">
       <Filter>Source</Filter>
     </ClInclude>
   </ItemGroup>

@@ -22,6 +22,7 @@
     <ClCompile Include="Source\CmdLineExec.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\MainInit.cpp" />
+    <ClCompile Include="Source\risByteShiftRegister.cpp" />
     <ClCompile Include="Source\risSerialMsgThread.cpp" />
     <ClCompile Include="Source\someSerialRxThread.cpp" />
     <ClCompile Include="Source\someSerialTxThread.cpp" />
@@ -32,6 +33,7 @@
   <ItemGroup>
     <ClInclude Include="Source\CmdLineExec.h" />
     <ClInclude Include="Source\MainInit.h" />
+    <ClInclude Include="Source\risByteShiftRegister.h" />
     <ClInclude Include="Source\risSerialMsgThread.h" />
     <ClInclude Include="Source\someSerialRxThread.h" />
     <ClInclude Include="Source\someSerialTxThread.h" />
