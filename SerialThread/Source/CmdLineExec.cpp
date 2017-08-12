@@ -1,7 +1,8 @@
 
 #include "stdafx.h"
 
-#include "risCmdLineConsole.h"
+#include "risSerialHeaderBuffer.h"
+
 #include "CmdLineExec.h"
 
 //******************************************************************************
@@ -10,6 +11,7 @@
 
 CmdLineExec::CmdLineExec()
 {
+   mHeaderBuffer.initialize(4);
 }
 
 void CmdLineExec::reset()
@@ -47,15 +49,13 @@ void CmdLineExec::execute(Ris::CmdLineCmd* aCmd)
 void CmdLineExec::executeGo1(Ris::CmdLineCmd* aCmd)
 {
    // Set defaults if no arguments were entered.
-   aCmd->setArgDefault(1,10);
-   aCmd->setArgDefault(2,11.1);
+   aCmd->setArgDefault(1,0);
 
    // Set variables from arguments.
-   int    tInt    = aCmd->argInt(1);
-   double tDouble = aCmd->argDouble(2);
+   char    tByte    = (char)aCmd->argInt(1);
 
-   // Show variables.
-   Prn::print(0,"Show2 %d %10.6f",tInt,tDouble);
+   mHeaderBuffer.shiftUp(tByte);
+   mHeaderBuffer.show();
 }
 
 //******************************************************************************

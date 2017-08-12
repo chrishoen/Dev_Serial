@@ -33,7 +33,6 @@ void SerialHeaderBuffer::reset()
    mSize  = 0;
    mCount = 0;
    mIndex = 0;
-   mK     = 0;
 }
 
 void SerialHeaderBuffer::initialize(int aSize)
@@ -44,14 +43,12 @@ void SerialHeaderBuffer::initialize(int aSize)
    mSize  = aSize;
    mCount = 0;
    mIndex = mSize-1;
-   mK = 0;
 }
 
 void SerialHeaderBuffer::reinitialize()
 {
    mCount = 0;
    mIndex = mSize-1;
-   mK = 0;
 }
 
 void SerialHeaderBuffer::finalize()
@@ -72,14 +69,14 @@ void SerialHeaderBuffer::finalize()
 
 void SerialHeaderBuffer::shiftUp(char aX)
 {
-   // Adjust index to the right
+   // Adjust the index down.
    mIndex = my_index_add(mIndex, 1, mSize);
 
-   // Add new value to array
+   // Add new value to array.
    mX=aX;
    mArray[mIndex]=aX;
 
-   // Calculate number of elements
+   // Calculate number of elements.
    if (mCount==mSize)
    {
       mValid=true;
@@ -89,9 +86,6 @@ void SerialHeaderBuffer::shiftUp(char aX)
       mCount++;
       mValid=false;
    }
-   
-   // Update
-   mK++;
 }
 
 //******************************************************************************
@@ -156,7 +150,7 @@ char SerialHeaderBuffer::getTop()
 
 void SerialHeaderBuffer::show()
 {
-   printf("SerialHeaderBuffer:                   %3d %3d $$",mIndex,(int)mX);
+   printf("SerialHeaderBuffer:                   %3d %3d $$",mIndex,mCount);
    for (int j=0;j<mSize;j++)
    {
       printf("%3d ", (int)get(j));

@@ -27,9 +27,8 @@ public:
 
    char    mX;         // Input value
    int     mSize;      // Array size
-   int     mIndex;     // Index of left end
+   int     mIndex;     // Index of bottom element
    int     mCount;     // Number of occupied elements
-   int     mK;         // Number of shifts
    bool    mValid;     // Valid
    char*   mArray;     // Value array
 
