@@ -78,7 +78,7 @@ void ByteShiftRegister::finalize()
 void ByteShiftRegister::shiftRight(double aX)
 {
    // Adjust index to the right
-   mIndex = dsp_index_add(mIndex, 1, mSize);
+   mIndex = my_index_add(mIndex, 1, mSize);
 
    // Add new value to array
    mX=aX;
@@ -115,7 +115,7 @@ double ByteShiftRegister::get(int aOffset)
    if (!mValid) return 0.0;
 
    // Get index
-   int tGetIndex = dsp_index_sub(mIndex, aOffset, mSize);
+   int tGetIndex = my_index_sub(mIndex, aOffset, mSize);
 
    // Return array value at index
    return mArray[tGetIndex];
@@ -140,7 +140,7 @@ double ByteShiftRegister::getRight()
    if (!mValid) return 0.0;
 
    // Get index of right end
-   int tGetIndex = dsp_index_sub(mIndex, (mSize - 1), mSize);
+   int tGetIndex = my_index_sub(mIndex, (mSize - 1), mSize);
 
    // Return array value at index
    return mArray[tGetIndex];
