@@ -40,7 +40,7 @@ void SerialHeaderBuffer::initialize(int aSize)
 {
    finalize();
    reset();
-   mArray = new double[aSize];
+   mArray = new char[aSize];
    mSize  = aSize;
    mCount = 0;
    mIndex = mSize-1;
@@ -66,8 +66,11 @@ void SerialHeaderBuffer::finalize()
 //******************************************************************************
 //******************************************************************************
 //******************************************************************************
+//******************************************************************************
+//******************************************************************************
+//******************************************************************************
 
-void SerialHeaderBuffer::shiftRight(double aX)
+void SerialHeaderBuffer::shiftUp(char aX)
 {
    // Adjust index to the right
    mIndex = my_index_add(mIndex, 1, mSize);
@@ -95,7 +98,7 @@ void SerialHeaderBuffer::shiftRight(double aX)
 //******************************************************************************
 //******************************************************************************
 
-void SerialHeaderBuffer::setLeft(double aX)
+void SerialHeaderBuffer::setBottom(char aX)
 {
    // Set array left end value
    mArray[mIndex]=aX;
@@ -105,10 +108,10 @@ void SerialHeaderBuffer::setLeft(double aX)
 //******************************************************************************
 //******************************************************************************
 
-double SerialHeaderBuffer::get(int aOffset)
+char SerialHeaderBuffer::get(int aOffset)
 {
    // Guard
-   if (!mValid) return 0.0;
+   if (!mValid) return 0;
 
    // Get index
    int tGetIndex = my_index_sub(mIndex, aOffset, mSize);
@@ -121,10 +124,10 @@ double SerialHeaderBuffer::get(int aOffset)
 //******************************************************************************
 //******************************************************************************
 
-double SerialHeaderBuffer::getLeft()
+char SerialHeaderBuffer::getBottom()
 {
    // Guard
-   if (!mValid) return 0.0;
+   if (!mValid) return 0;
 
    // Return array value at index
    return mArray[mIndex];
@@ -134,10 +137,10 @@ double SerialHeaderBuffer::getLeft()
 //******************************************************************************
 //******************************************************************************
 
-double SerialHeaderBuffer::getRight()
+char SerialHeaderBuffer::getTop()
 {
    // Guard
-   if (!mValid) return 0.0;
+   if (!mValid) return 0;
 
    // Get index of right end
    int tGetIndex = my_index_sub(mIndex, (mSize - 1), mSize);
@@ -153,10 +156,10 @@ double SerialHeaderBuffer::getRight()
 
 void SerialHeaderBuffer::show()
 {
-   printf("SerialHeaderBuffer:                   %3d %8.3f $$",mIndex,mX);
+   printf("SerialHeaderBuffer:                   %3d %3d $$",mIndex,(int)mX);
    for (int j=0;j<mSize;j++)
    {
-      printf("%8.3f ", get(j));
+      printf("%3d ", (int)get(j));
    }
    printf("\n");
 }

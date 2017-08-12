@@ -25,13 +25,13 @@ public:
    //***************************************************************************
    // Members.
 
-   double  mX;         // Input value
+   char    mX;         // Input value
    int     mSize;      // Array size
    int     mIndex;     // Index of left end
    int     mCount;     // Number of occupied elements
    int     mK;         // Number of shifts
    bool    mValid;     // Valid
-   double* mArray;     // Value array
+   char*   mArray;     // Value array
 
    //***************************************************************************
    //***************************************************************************
@@ -58,15 +58,15 @@ public:
    // Methods.
 
    // Shift right and put input value at the left end.
-   void shiftRight(double aX);
+   void shiftUp(char aX);
 
    // Set the left end value
-   void setLeft(double aX);
+   void setBottom(char aX);
 
    // Get value
-   double get(int    aIndex);
-   double getLeft();
-   double getRight();
+   char get(int    aIndex);
+   char getBottom();
+   char getTop();
 
 };
 
