@@ -52,7 +52,7 @@ void CmdLineExec::executeGo1(Ris::CmdLineCmd* aCmd)
    aCmd->setArgDefault(1,0);
 
    // Set variables from arguments.
-   char    tByte    = (char)aCmd->argInt(1);
+   char tByte = (char)aCmd->argInt(1);
 
    mHeaderBuffer.shiftUp(tByte);
    mHeaderBuffer.show();
@@ -64,11 +64,7 @@ void CmdLineExec::executeGo1(Ris::CmdLineCmd* aCmd)
 
 void CmdLineExec::executeGo2(Ris::CmdLineCmd* aCmd)
 {
-   // Set defaults if no arguments were entered.
-   aCmd->setArgDefault(1,"something");
-
-   // Show arguments.
-   Prn::print(0,"Go2 %s %10.6f",aCmd->argString(1));
+   Prn::print(0,"Top %3d",mHeaderBuffer.getTop());
 }
 
 //******************************************************************************
@@ -77,6 +73,7 @@ void CmdLineExec::executeGo2(Ris::CmdLineCmd* aCmd)
 
 void CmdLineExec::executeGo3(Ris::CmdLineCmd* aCmd)
 {
+   Prn::print(0,"Top %3d",mHeaderBuffer.getBottom());
 }
 
 //******************************************************************************

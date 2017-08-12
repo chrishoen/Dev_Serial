@@ -64,8 +64,8 @@ public:
 
    // Get value
    char get(int    aIndex);
-   char getBottom();
    char getTop();
+   char getBottom();
 
 };
 

@@ -77,13 +77,13 @@ void SerialHeaderBuffer::shiftUp(char aX)
    mArray[mIndex]=aX;
 
    // Calculate number of elements.
-   if (mCount==mSize)
+   if (++mCount >= mSize)
    {
       mValid=true;
+      mCount = mSize;
    }
    else
    {
-      mCount++;
       mValid=false;
    }
 }
@@ -108,7 +108,8 @@ char SerialHeaderBuffer::get(int aOffset)
    if (!mValid) return 0;
 
    // Get index
-   int tGetIndex = my_index_sub(mIndex, aOffset, mSize);
+   int tTopIndex = my_index_add(mIndex, 1, mSize);
+   int tGetIndex = my_index_add(tTopIndex, aOffset, mSize);
 
    // Return array value at index
    return mArray[tGetIndex];
@@ -150,7 +151,7 @@ char SerialHeaderBuffer::getTop()
 
 void SerialHeaderBuffer::show()
 {
-   printf("SerialHeaderBuffer:                   %3d %3d $$",mIndex,mCount);
+   printf("SerialHeaderBuffer:                   %3d %3d %1d $$",mIndex,mCount,mValid);
    for (int j=0;j<mSize;j++)
    {
       printf("%3d ", (int)get(j));
